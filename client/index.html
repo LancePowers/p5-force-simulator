@@ -3,57 +3,80 @@
 
 <head>
   <title>Circle Forces Simulator</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
   <div style="position: absolute; right:0">
-      <button type="button" id="stop" class="btn btn-primary btn-small m-2">
-          freeze
-        </button>
-      <button type="button" class="btn btn-primary btn-small m-2" data-toggle="modal" data-target="#introModal">
-          info
-        </button>
+    <button type="button" id="stop" class="btn btn-primary btn-small m-2">
+      Freeze
+    </button>
+    <button type="button" class="btn btn-primary btn-small m-2" data-toggle="modal" data-target="#introModal">
+      Recipes
+    </button>
   </div>
-    
-    <div class="modal" tabindex="-1" role="dialog" id="introModal">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Force Simulator</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                      </tr>
-                    </thead>
-                    <tbody id="forceDescriptions">
-                      
-                    </tbody>
-                  </table>
-              <div id="forceDescriptions"></div>
-              <p>A huge thank you to all of the contributors to the <a href="https://p5js.org/examples/" target="_blank">p5.JS examples</a>!</p>
-            </div>
-          </div>
+
+  <div class="modal" tabindex="-1" role="dialog" id="introModal">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Force Simulator</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <h3>Controls: </h3>
+          <h6>Force Buttons: Change the circles behavior.</h6>
+          <h6>Freeze: Stop and try something else.</h6>
+          <h6>Recipes: Some fun ideas and force explanations.</h6>
+          <h6>Lose your circles? Try scrolling down or adding Border Bounce and Seek Mouse</h6>          
+          <h3>Recipes: </h3>
+          <ul>
+              <li>Multiply + Collide Bounce => Split some atoms. <small>**Good place to start.</small></li>
+              <li>Gravity + Wrap => Really speed things up.</li>
+              <li class="mb-0">Freeze + Border Bounce + Seek Mouse => Gather your the circles together.</li>
+              <small> Once they're together add Collide Bounce for some extra action!</small>
+              <li class="mt-2 mb-0">Align + Separate + Wrap + Cohesion => Circles will flock together.</li>
+              <small> Swap Cohesion with Seek Mouse to flock to the cursor</small>
+              <li class="mt-2">Seek Mouse + Eyes + Tickle + Collide Bounce => Weirdness</li>
+              <small>A huge thank you to all of the contributors to the <a href="https://p5js.org/examples/"
+                  target="_blank">p5.JS examples</a>!</small>
+          </ul>          
+          <h3>Forces: </h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody id="forceDescriptions">
+            </tbody>
+          </table>
+          <div id="forceDescriptions"></div>
         </div>
       </div>
+    </div>
+  </div>
   <div class="container controls">
     <div class="text-center">
-      <h4>Force Simulator</h4>            
+      <h4>Force Simulator</h4>
     </div>
     <div class="row" id="Controls"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
   <script src="./js/circles/forces.js"></script>
   <script src="./js/circles/force_factory.js"></script>
   <script src="./js/circles/system.js"></script>

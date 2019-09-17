@@ -2,7 +2,7 @@ console.log(window.innerHeight)
 
 let sketch = function (p) {
     p.setup = function () {
-        p.createCanvas(window.innerWidth, window.innerHeight * 5);
+        p.createCanvas(window.innerWidth, window.innerHeight * 2);
         p.noStroke();
         p.frameRate(30);
         gravity = draw.createVector(0, 0.03);
